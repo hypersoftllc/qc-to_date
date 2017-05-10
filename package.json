@@ -1,0 +1,67 @@
+{
+  "name": "qc-to_date",
+  "version": "0.0.0",
+  "author": {
+    "name": "Danny Hurlburt",
+    "url": "https://github.com/dhurlburtusa"
+  },
+  "description": "A simple JavaScript utility to convert various value to a Date.",
+  "keywords": [
+    "coerce",
+    "convert",
+    "conversion",
+    "date",
+    "javascript",
+    "to_date",
+    "toDate",
+    "typescript",
+    "utility"
+  ],
+  "homepage": "https://github.com/hypersoftllc/qc-to_date#readme",
+  "bugs": {
+    "url": "https://github.com/hypersoftllc/qc-to_date/issues"
+  },
+  "license": "ISC",
+  "files": [
+    "dist/",
+    "src/index.ts"
+  ],
+  "main": "dist/index.js",
+  "typings": "dist/index",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hypersoftllc/qc-to_date.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "tsc",
+    "test": "jest --color --coverage",
+    "travisci": "npm test"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/"
+    ],
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts",
+      "tsx"
+    ]
+  },
+  "dependencies": {
+    "qc-to_int": "^0.0.0",
+    "qc-type_of": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "jest": "^19.0.2",
+    "ts-jest": "^19.0.14",
+    "typescript": "^2.3.2"
+  }
+}
