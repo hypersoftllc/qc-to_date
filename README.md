@@ -2,6 +2,7 @@
 
 [![Build Status][travis-svg]][travis-url]
 [![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
 
 A simple JavaScript utility to convert various value to a Date.
 
@@ -23,6 +24,8 @@ toDate(new Date()); // The Date input
 ```
 
 
+[downloads-image]: http://img.shields.io/npm/dm/qc-to_date.svg
+[downloads-url]: http://npm-stat.com/charts.html?package=qc-to_date
 [license-image]: http://img.shields.io/npm/l/qc-to_date.svg
 [license-url]: LICENSE
 [travis-svg]: https://travis-ci.org/hypersoftllc/qc-to_date.svg?branch=master
