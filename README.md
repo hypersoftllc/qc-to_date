@@ -1,6 +1,7 @@
 # qc-to_date
 
 [![Build Status][travis-svg]][travis-url]
+[![License][license-image]][license-url]
 
 A simple JavaScript utility to convert various value to a Date.
 
@@ -22,5 +23,7 @@ toDate(new Date()); // The Date input
 ```
 
 
+[license-image]: http://img.shields.io/npm/l/qc-to_date.svg
+[license-url]: LICENSE
 [travis-svg]: https://travis-ci.org/hypersoftllc/qc-to_date.svg?branch=master
 [travis-url]: https://travis-ci.org/hypersoftllc/qc-to_date
