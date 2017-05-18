@@ -1,6 +1,7 @@
 # qc-to_date
 
 [![Build Status][travis-svg]][travis-url]
+[![Coverage Status][coverage-image]][coverage-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
 
@@ -26,6 +27,8 @@ toDate(new Date()); // The Date input
 ```
 
 
+[coverage-image]: https://coveralls.io/repos/github/hypersoftllc/qc-to_date/badge.svg?branch=master
+[coverage-url]: https://coveralls.io/github/hypersoftllc/qc-to_date?branch=master
 [downloads-image]: http://img.shields.io/npm/dm/qc-to_date.svg
 [downloads-url]: http://npm-stat.com/charts.html?package=qc-to_date
 [license-image]: http://img.shields.io/npm/l/qc-to_date.svg
