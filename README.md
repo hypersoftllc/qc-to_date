@@ -1,8 +1,8 @@
 # qc-to_date
 
-A simple JavaScript utility to convert various value to a Date.
-
 [![Build Status](https://travis-ci.org/hypersoftllc/qc-to_date.svg?branch=master)](https://travis-ci.org/hypersoftllc/qc-to_date)
+
+A simple JavaScript utility to convert various value to a Date.
 
 
 ## Installation
