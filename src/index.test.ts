@@ -71,7 +71,7 @@ describe('qc-to_date', () => {
       expect(output).toBe(input);
     });
 
-    it('called with a Moment-like input should return the date', () => {
+    it('called with an object with a `toDate` function input should return the date', () => {
       let input: any, output: any;
 
       input = new Date();

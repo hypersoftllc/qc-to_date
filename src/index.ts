@@ -10,9 +10,9 @@ import { typeOf } from 'qc-type_of';
  * 1. A `Date` instance.  It gets returned without modification.
  * 2. A number.  It will be interpreted as the number of milliseconds from the
  *    UNIX epoch.
- * 3. A Moment-like instance from the Moment.js library.  A Moment-like object
- *    is an object which has a property named `toDate` that is a function which
- *    returns a `Date` instance when called with no arguments.
+ * 3. An object with a property named `toDate` that is a function which returns
+ *    a `Date` instance when called with no arguments.  A Moment instance from
+ *    the Moment library is an example of such an object.
  *
  * Example Usage:
  *
