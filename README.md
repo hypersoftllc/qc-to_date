@@ -35,6 +35,8 @@ toDate(<not-date-like>, null);                  // `null`
 toDate(<not-date-like>, 0);                     // `0`
 toDate(<not-date-like>, new Date());            // The new Date
 toDate(<not-date-like>, { def: {...} });        // The `{...}` object
+toDateOrNull(<not-date-like>);                  // `null`
+toDateOrNull(<date-like>);                      // The Date
 ```
 
 

@@ -81,5 +81,13 @@ function toDate(input?: any, def?: any | { def?: any }): any {
 }
 
 
+/**
+ * Like `toDate` but returns `null` if input is not convertible to a `Date`.
+ */
+function toDateOrNull(input?: any) {
+  return toDate(input, null);
+}
+
+
 // ==========================================================================
-export { toDate };
+export { toDate, toDateOrNull };

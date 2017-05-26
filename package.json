@@ -13,6 +13,7 @@
     "date",
     "javascript",
     "toDate",
+    "toDateOrNull",
     "typescript",
     "utility"
   ],

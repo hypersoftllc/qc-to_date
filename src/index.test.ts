@@ -1,5 +1,5 @@
 
-import { toDate } from './index';
+import { toDate, toDateOrNull } from './index';
 
 describe('qc-to_date', () => {
 
@@ -133,6 +133,35 @@ describe('qc-to_date', () => {
       expect(output.getUTCMinutes()).toBe(0);
       expect(output.getUTCSeconds()).toBe(0);
       expect(output.getUTCMilliseconds()).toBe(0);
+    });
+
+  });
+
+  describe('`toDateOrNull`', () => {
+
+    it('should be a function', () => {
+      expect(typeof toDateOrNull).toBe('function');
+    });
+
+    it('called with no arguments should return `null`', () => {
+      expect(toDateOrNull()).toBeNull();
+    });
+
+    it('called with inconvertible input should return `null`', function () {
+      expect(toDateOrNull(arguments)).toBeNull();
+      expect(toDateOrNull([])).toBeNull();
+      expect(toDateOrNull(['not empty'])).toBeNull();
+      expect(toDateOrNull(new Error('Help!'))).toBeNull();
+      expect(toDateOrNull(function () {})).toBeNull();
+      expect(toDateOrNull({})).toBeNull();
+      expect(toDateOrNull({ prop: 'not empty' })).toBeNull();
+      expect(toDateOrNull(null)).toBeNull();
+      expect(toDateOrNull(NaN)).toBeNull();
+      expect(toDateOrNull(Number.NaN)).toBeNull();
+      expect(toDateOrNull(/regexp/)).toBeNull();
+      expect(toDateOrNull('')).toBeNull();
+      expect(toDateOrNull('not empty')).toBeNull();
+      expect(toDateOrNull(undefined)).toBeNull();
     });
 
   });
