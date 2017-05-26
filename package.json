@@ -1,6 +1,6 @@
 {
   "name": "qc-to_date",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": {
     "name": "Danny Hurlburt",
     "url": "https://github.com/dhurlburtusa"
@@ -12,8 +12,8 @@
     "conversion",
     "date",
     "javascript",
-    "to_date",
     "toDate",
+    "toDateOrNull",
     "typescript",
     "utility"
   ],
@@ -55,10 +55,6 @@
       "ts",
       "tsx"
     ]
-  },
-  "dependencies": {
-    "qc-to_int": "^0.0.0",
-    "qc-type_of": "^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^19.2.2",

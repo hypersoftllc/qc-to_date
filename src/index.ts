@@ -1,11 +1,11 @@
 
-import { toInt } from 'qc-to_int';
-import { typeOf } from 'qc-type_of';
-
 // ==========================================================================
 /**
  * Converts a date-like object to a date.  Three date-like objects are
  * recognized.
+ *
+ * If the date-like input cannot be converted to a date, then the default value
+ * is returned.  When the default value is undefined, then the input is returned.
  *
  * 1. A `Date` instance.  It gets returned without modification.
  * 2. A number.  It will be interpreted as the number of milliseconds from the
@@ -17,47 +17,77 @@ import { typeOf } from 'qc-type_of';
  * Example Usage:
  *
  * ```js
- * let date;
- * date = toDate(new Date()); // options don't matter.
- * date = toDate(1234567890); // options don't matter.
+ * toDate(946684800000);   // Date on 2000-01-01T00:00:00.000 UTC
+ * toDate(new Date());     // The Date input
+ * toDate({ toDate() { return 946684800000; } });  // The Date created from the
+ *                                                 // number returned from
+ *                                                 // `toDate`
+ * toDate({ toDate() { return new Date(); } });    // The Date returned from
+ *                                                 // `toDate`
+ * toDate(<not-date-like>);                        // The not-date-like input
+ * toDate(<not-date-like>, undefined);             // The not-date-like input
+ * toDate(<not-date-like>, null);                  // `null`
+ * toDate(<not-date-like>, 0);                     // `0`
+ * toDate(<not-date-like>, new Date());            // The new Date
+ * toDate(<not-date-like>, { def: {...} });        // The `{...}` object
  * ```
  *
- * @param {(Date|number)} input - The value to convert to a `Date` instance.
- * @param {Object} [options] - The options to use when parsing.
- * @param {*} [options.def=null] - The default value to return if unable to
- *   convert.
+ * @param {*=} input - The value to be converted to a JavaScript date.
+ * @param {*=|{ def=: *}} [def=undefined] - The default value to return if
+ *   unable to convert.  This is allowed to be of any data type.  This may also
+ *   be an object with a `def` property.  To return an object as a default value,
+ *   then wrap it in an object with a `def` property set to the object that is to
+ *   be used as the default value.  A default value resolving to `undefined`
+ *   means return the input when not convertible.
  *
  * @returns {(Date|*)} The input converted to a date or the default value if
- *   unable to convert.
+ *   unable to convert.  Note: a value of type number is not always returned when
+ *   the default value is returned.
  */
-function toDate(input?: any, opts?: { def?: any }): any {
-  let coersedInput: any, defValue: any, output: any, typeOfInput: string;
+function toDate(input?: any, def?: any | { def?: any }): any {
+  let coercedInput: any, output: any;
 
-  opts = opts || {};
+  if (input instanceof Date) {
+    output = input;
+  }
+  else {
+    coercedInput = input;
+    // If input has a `toDate` function, then attempt to convert to coerce to a date-like object.
+    if (input && typeof input.toDate == 'function') {
+      coercedInput = input.toDate();
+    }
 
-  coersedInput = input;
-  // If input is a moment instance or like a moment instance with a `toDate` function, then attempt to convert to a Date.
-  if (input && typeof input.toDate == 'function') {
-    coersedInput = input.toDate();
+    if (Number.isFinite(coercedInput)) {
+      output = new Date(coercedInput);
+    }
+
+    if (!(output instanceof Date)) {
+      // Resolve default value:
+      if (typeof def == 'object' && def !== null) {
+        def = def.def;
+      }
+      else {
+        def = def;
+      }
+      if (def === undefined) {
+        def = input;
+      }
+
+      output = def;
+    }
   }
 
-  if (coersedInput instanceof Date) {
-    return coersedInput;
-  }
-
-  typeOfInput = typeOf(coersedInput);
-  if (typeOfInput == 'number') {
-    coersedInput = toInt(coersedInput);
-    output = new Date(coersedInput);
-  }
-
-  if (!(output instanceof Date)) {
-    defValue = opts.hasOwnProperty('def') ? opts.def : null;
-    output = defValue;
-  }
   return output;
 }
 
 
+/**
+ * Like `toDate` but returns `null` if input is not convertible to a `Date`.
+ */
+function toDateOrNull(input?: any) {
+  return toDate(input, null);
+}
+
+
 // ==========================================================================
-export { toDate, toDate as to_date };
+export { toDate, toDateOrNull };
