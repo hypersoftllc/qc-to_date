@@ -60,4 +60,4 @@ function toDate(input?: any, opts?: { def?: any }): any {
 
 
 // ==========================================================================
-export { toDate, toDate as to_date };
+export { toDate };

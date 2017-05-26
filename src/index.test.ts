@@ -1,5 +1,5 @@
 
-import { to_date, toDate } from './index';
+import { toDate } from './index';
 
 describe('qc-to_date', () => {
 
@@ -103,18 +103,6 @@ describe('qc-to_date', () => {
       expect(output.getUTCMinutes()).toBe(0);
       expect(output.getUTCSeconds()).toBe(0);
       expect(output.getUTCMilliseconds()).toBe(0);
-    });
-
-  });
-
-  describe('`to_date`', () => {
-
-    it('should be a function', () => {
-      expect(typeof to_date).toBe('function');
-    });
-
-    it('should be an alias of `toDate`', () => {
-      expect(to_date).toBe(toDate);
     });
 
   });
