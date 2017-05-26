@@ -29,6 +29,12 @@ toDate({ toDate() { return 946684800000; } });  // The Date created from the
                                                 // `toDate`
 toDate({ toDate() { return new Date(); } });    // The Date returned from
                                                 // `toDate`
+toDate(<not-date-like>);                        // The not-date-like input
+toDate(<not-date-like>, undefined);             // The not-date-like input
+toDate(<not-date-like>, null);                  // `null`
+toDate(<not-date-like>, 0);                     // `0`
+toDate(<not-date-like>, new Date());            // The new Date
+toDate(<not-date-like>, { def: {...} });        // The `{...}` object
 ```
 
 
