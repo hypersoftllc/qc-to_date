@@ -22,8 +22,13 @@ npm install --save qc-to_date
 ```js
 import { toDate } from 'qc-to_date';
 
-toDate(946684800000); // Date on 2000-01-01T00:00:00.000 UTC
-toDate(new Date()); // The Date input
+toDate(946684800000);   // Date on 2000-01-01T00:00:00.000 UTC
+toDate(new Date());     // The Date input
+toDate({ toDate() { return 946684800000; } });  // The Date created from the
+                                                // number returned from
+                                                // `toDate`
+toDate({ toDate() { return new Date(); } });    // The Date returned from
+                                                // `toDate`
 ```
 
 
