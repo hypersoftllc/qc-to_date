@@ -4,12 +4,15 @@ import { typeOf } from 'qc-type_of';
 
 // ==========================================================================
 /**
- * Converts a date-like object to a date.  Three date-like objects are recognized.
+ * Converts a date-like object to a date.  Three date-like objects are
+ * recognized.
  *
  * 1. A `Date` instance.  It gets returned without modification.
- * 2. A number.  It will be interpreted as the number of milliseconds from the UNIX epoch.
- * 3. A Moment-like instance from the Moment.js library.  A Moment-like object is an object which has a property named
- *    `toDate` that is a function which returns a `Date` instance when called with no arguments.
+ * 2. A number.  It will be interpreted as the number of milliseconds from the
+ *    UNIX epoch.
+ * 3. A Moment-like instance from the Moment.js library.  A Moment-like object
+ *    is an object which has a property named `toDate` that is a function which
+ *    returns a `Date` instance when called with no arguments.
  *
  * Example Usage:
  *
@@ -21,9 +24,11 @@ import { typeOf } from 'qc-type_of';
  *
  * @param {(Date|number)} input - The value to convert to a `Date` instance.
  * @param {Object} [options] - The options to use when parsing.
- * @param {*} [options.def=null] - The default value to return if unable to convert.
+ * @param {*} [options.def=null] - The default value to return if unable to
+ *   convert.
  *
- * @returns {(Date|*)} The input converted to a date or the default value if unable to convert.
+ * @returns {(Date|*)} The input converted to a date or the default value if
+ *   unable to convert.
  */
 function toDate(input?: any, opts?: { def?: any }): any {
   let coersedInput: any, defValue: any, output: any, typeOfInput: string;
