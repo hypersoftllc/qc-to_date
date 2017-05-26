@@ -7,7 +7,7 @@
 
 [![npm badge][npm-badge-png]][package-url]
 
-A simple JavaScript utility to convert various value to a Date.
+A simple JavaScript utility to convert various values to a Date.
 
 
 ## Installation
