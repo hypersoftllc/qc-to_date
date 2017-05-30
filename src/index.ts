@@ -63,7 +63,7 @@ function toDate(input?: any, def?: any | { def?: any }): any {
 
     if (!(output instanceof Date)) {
       // Resolve default value:
-      if (typeof def == 'object' && def !== null) {
+      if (typeof def == 'object' && def !== null && def.hasOwnProperty('def')) {
         def = def.def;
       }
       else {
