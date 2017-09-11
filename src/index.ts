@@ -33,7 +33,7 @@
  * ```
  *
  * @param {*=} input - The value to be converted to a JavaScript date.
- * @param {*=|{ def=: *}} [def=undefined] - The default value to return if
+ * @param {*=|{ def: *}} [def=undefined] - The default value to return if
  *   unable to convert.  This is allowed to be of any data type.  This may also
  *   be an object with a `def` property.  To return an object as a default value,
  *   then wrap it in an object with a `def` property set to the object that is to
@@ -44,7 +44,7 @@
  *   unable to convert.  Note: a value of type number is not always returned when
  *   the default value is returned.
  */
-function toDate(input?: any, def?: any | { def?: any }): any {
+function toDate(input?: any, def?: any | { def: any }): any {
   let coercedInput: any, output: any;
 
   if (input instanceof Date) {
